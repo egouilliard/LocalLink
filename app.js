@@ -16,10 +16,10 @@ app.post('/login', (req, res) => {
   res.send(`Login attempted with username: ${username} and password: ${password}`);
 });
 
-app.post('/signin', (req, res) => {
+app.post('/signup', (req, res) => {
   const { username, password } = req.body;
-  // Handle signin logic here
-  res.send(`Signin attempted with username: ${username} and password: ${password}`);
+  // Handle signup logic here
+  res.send(`Signup attempted with username: ${username} and password: ${password}`);
 });
 
 app.listen(port, () => {
