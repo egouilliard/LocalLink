@@ -13,12 +13,14 @@ build:
 # Run the Docker container in detached mode
 run:
 	@echo "Starting Docker container in detached mode..."
+	@docker-compose up -d postgres pgadmin
 	@docker run -d -p 3000:3000 --name $(APP_CONTAINER) locallink
 
 # Stop, remove containers, and clear images/volumes
 clean:
 	@echo "Stopping and removing the $(APP_CONTAINER) container..."
 	@docker rm -f $(APP_CONTAINER) || true
+	@docker-compose down --volumes --remove-orphans
 	@docker rmi -f $(docker images -q) || true
 	@docker volume rm $(docker volume ls -q) || true
 	@echo "Cleaned up Docker containers, images, and volumes."
