@@ -36,6 +36,28 @@ To get started, simply clone this repository and customize it to fit your needs.
    make run
    ```
 
+## Setting up Postgres and pgAdmin
+
+### Using Docker Compose
+
+1. Start the services:
+   ```sh
+   docker-compose up
+   ```
+
+2. Access pgAdmin:
+   Open your browser and go to `http://localhost:5051`
+   - Login with the default email and password:
+     - Email: `admin@locallink.com`
+     - Password: `admin`
+
+3. Add a new server in pgAdmin:
+   - Host name/address: `postgres`
+   - Port: `5433`
+   - Maintenance database: `locallink`
+   - Username: `locallink_user`
+   - Password: `locallink_password`
+
 ## Contributing
 
 If you would like to contribute to this repository, please fork it and submit a pull request with your changes. We welcome contributions from the community and appreciate your help in improving this project.

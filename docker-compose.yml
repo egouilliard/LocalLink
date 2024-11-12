@@ -9,3 +9,22 @@ services:
     volumes:
       - .:/app
     command: make restart
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: locallink
+      POSTGRES_USER: locallink_user
+      POSTGRES_PASSWORD: locallink_password
+    ports:
+      - "5433:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@locallink.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5051:80"
