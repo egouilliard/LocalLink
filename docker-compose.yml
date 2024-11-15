@@ -1,3 +1,11 @@
+# Global environment variables
+x-postgres-env: &postgres-env
+  POSTGRES_DB: ${POSTGRES_DB:-openwebui}
+  POSTGRES_USER: ${POSTGRES_USER:-openwebui}
+  POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-your_secure_password}
+  POSTGRES_HOST: ${POSTGRES_HOST:-postgres}
+  POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+
 version: '3.8'
 
 services:
@@ -26,5 +34,9 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@locallink.com
       PGADMIN_DEFAULT_PASSWORD: admin
+      POSTGRES_SERVER_NAME: PostgresDocker  # Display name in pgAdmin
+      POSTGRES_DB: "locallink"  # Database to connect
+      POSTGRES_USER: "locallink_user"  # DB user
+      POSTGRES_PASSWORD: "locallink_password"  # DB password
     ports:
       - "5051:80"
