@@ -3,7 +3,7 @@
 DOCKER_COMPOSE = docker-compose
 APP_CONTAINER = locallink  # The named container
 
-.PHONY: start clean build restart status help
+.PHONY: start clean build restart status help run
 
 # Build the Docker images
 build:
@@ -39,3 +39,8 @@ help:
 	@echo " make restart   - Clean and restart all containers in detached mode"
 	@echo " make status    - Show status of all containers"
 	@echo " make help      - Show this help message"
+
+# Run the Docker containers using docker-compose up
+run:
+	@echo "Running Docker containers..."
+	@$(DOCKER_COMPOSE) up

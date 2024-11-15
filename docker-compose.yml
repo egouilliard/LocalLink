@@ -16,7 +16,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/app
-    command: make restart
+    command: npm start
     depends_on:
       - postgres
 
